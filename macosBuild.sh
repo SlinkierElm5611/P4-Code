@@ -1,0 +1,1 @@
+clang++ code.cpp -I/Library/Frameworks/SDL2.framework/Headers -F/Library/Frameworks -framework SDL2 -o backendCode -v
