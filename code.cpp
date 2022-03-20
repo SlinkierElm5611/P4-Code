@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL.h>
+#include <glad/glad.h>
 int main(int argc, char* argv[]){
     SDL_Window* window=nullptr;
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
