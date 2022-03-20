@@ -14,6 +14,7 @@ int main(int argc, char* argv[]){
             640,
             480,
             SDL_WINDOW_SHOWN);
+    
     bool gameIsRunning = true;
     while(gameIsRunning){
         SDL_Event event;
