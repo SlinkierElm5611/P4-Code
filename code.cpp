@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 int main(int argc, char* argv[]){
     SDL_Window* window=nullptr;
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -18,11 +18,6 @@ int main(int argc, char* argv[]){
     while(gameIsRunning){
         SDL_Event event;
         while(SDL_PollEvent(&event)){
-            if(event.type == SDL_QUIT){
-                gameIsRunning = false;
-            }else if(event.type == SDL_KEYDOWN){
-                std::cout<<"a key was pressed"<<std::endl;
-            }
             const Uint8* state = SDL_GetKeyboardState(NULL);
             if(state[SDL_SCANCODE_RIGHT]){
                 std::cout<<"Right arrow key is pressed"<<std::endl;
