@@ -1,6 +1,9 @@
 #include <iostream>
 #include <SDL.h>
 #include <glad/glad.h>
+void printCharacterOutput(const Uint8 state, const short& joystickState){
+    char output;
+}
 int main(int argc, char* argv[]){
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
