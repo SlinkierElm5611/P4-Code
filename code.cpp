@@ -65,6 +65,7 @@ int main(int argc, char* argv[]){
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     bool gameIsRunning = true;
     short switchState = 0;
+    std::cout<<SDL_JoystickNumHats(joystick)<<std::endl;
     while(gameIsRunning){
         SDL_Event event;
         while(SDL_PollEvent(&event)){
@@ -74,8 +75,20 @@ int main(int argc, char* argv[]){
             }
             if(event.type == SDL_JOYAXISMOTION){
                 short joystickState = 0;
-                printCharacterOutput(state, joystickState, switchState);
+                //printCharacterOutput(state, joystickState, switchState);
                 //find distinction between direction and setup printFunction call
+                if(event.jaxis.axis==0){
+                    if(event.jaxis.value > 1000){
+                        joystickState = 4;
+                    }else if(event.jaxis.value < -1000){
+                        joystickState = 2;
+                    }else{
+                        joystickState = 0;
+                    }
+                }else if(event.jaxis.axis==1){
+                    std::cout<<"up-down"<<std::endl;
+                    std::cout<<event.jaxis.value<<std::endl;
+                }
             }
             SDL_RenderClear(renderer);
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
