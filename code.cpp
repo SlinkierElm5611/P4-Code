@@ -1,9 +1,26 @@
 #include <iostream>
 #include <SDL.h>
 #include <glad/glad.h>
-void printCharacterOutput(const Uint8* state, const short& joystickState){
+void printCharacterOutput(const Uint8* state, const short& joystickState, short& switchState){
     //assign keybinds 
     char output=0;
+    if(joystickState==1){
+        if(state[SDLK_SPACE]){
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
+            }
+        }else if(state[SDLK_q]){
+            if(switchState == 0){
+                output = 'A';
+            }else if(switchState == 1){
+                output = 'a';
+            }
+        }
+    }else if(joystickState==2){
+    }else if(joystickState==3){
+    }else if(joystickState==4){
+    }
     std::cout<<output<<std::endl;
 }
 int main(int argc, char* argv[]){
@@ -47,6 +64,7 @@ int main(int argc, char* argv[]){
             SDL_WINDOW_OPENGL);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     bool gameIsRunning = true;
+    short switchState = 0;
     while(gameIsRunning){
         SDL_Event event;
         while(SDL_PollEvent(&event)){
@@ -56,7 +74,7 @@ int main(int argc, char* argv[]){
             }
             if(event.type == SDL_JOYAXISMOTION){
                 short joystickState = 0;
-                printCharacterOutput(state, joystickState);
+                printCharacterOutput(state, joystickState, switchState);
                 //find distinction between direction and setup printFunction call
             }
             SDL_RenderClear(renderer);
