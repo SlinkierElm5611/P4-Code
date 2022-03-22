@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <glad/glad.h>
 void printCharacterOutput(const Uint8 state, const short& joystickState){
+    //assign keybinds 
     char output;
 }
 int main(int argc, char* argv[]){
@@ -24,10 +25,11 @@ int main(int argc, char* argv[]){
             SDL_Delay(1000);
             if(SDL_NumJoysticks()==0){
                 std::cerr<<"Joystick Not Detected!"<<std::endl;
+                SDL_Quit();
                 if(counter == 100){
-                    SDL_Quit();
                     return 0;
                 }
+                SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK);
                 counter++;
             }else{
                 SDL_JoystickEventState(SDL_ENABLE);
@@ -50,11 +52,11 @@ int main(int argc, char* argv[]){
             const Uint8* state = SDL_GetKeyboardState(NULL);
             if(event.type == SDL_QUIT){
                 gameIsRunning=false;
-            }else if(state[SDL_SCANCODE_RIGHT]){
-                std::cout<<"right arrow key pressed"<<std::endl;
             }
-            if(event.type == SDL_KEYDOWN){
-                std::cout<<"a key was pressed"<<std::endl;
+            if(event.type == SDL_JOYAXISMOTION){
+                short joystickState = 0;
+                printCharacterOutput(state, joystickState);
+                //find distinction between direction and setup printFunction call
             }
             SDL_RenderClear(renderer);
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
