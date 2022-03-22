@@ -15,8 +15,51 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
                 output = 'A';
             }else if(switchState == 1){
                 output = 'a';
+            }else if(switchState == 2){
+                output = '@';
+            }
+        }else if(state[SDLK_3]){
+            if(switchState == 0){
+                output = 'E';
+            }else if (switchState == 1){
+                output = 'e';
+            }else if(switchState == 2){
+                output = '^';
+            }
+        }else if(state[SDLK_4]){
+            if(switchState == 0){
+                output = 'I';
+            }else if(switchState == 1){
+                output = 'i';
+            }else if(switchState == 2){
+                output = '-';
+            }
+        }else if(state[SDLK_5]){
+            if(switchState == 0){
+                output = 'M';
+            }else if(switchState == 1){
+                output = 'm';
+            }else if(switchState == 2){
+                output = '[';
+            }
+        }else if(state[SDLK_b]){
+            if(switchState == 0 ){
+                output = 'Q';
+            }else if(switchState == 1){
+                output = 'q';
+            }else if(switchState == 2){
+                output = '"';
+            }
+        }else if(state[SDLK_a]){
+            if(switchState == 0){
+                output = 'U';
+            }else if(switchState == 1 ){
+                output = 'u';
+            }else if (switchState == 2){
+                output = 'upward arrow key';
             }
         }
+
     }else if(joystickState==2){
     }else if(joystickState==3){
     }else if(joystickState==4){
