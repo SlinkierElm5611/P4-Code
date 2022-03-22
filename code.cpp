@@ -1,9 +1,10 @@
 #include <iostream>
 #include <SDL.h>
 #include <glad/glad.h>
-void printCharacterOutput(const Uint8 state, const short& joystickState){
+void printCharacterOutput(const Uint8* state, const short& joystickState){
     //assign keybinds 
-    char output;
+    char output=0;
+    std::cout<<output<<std::endl;
 }
 int main(int argc, char* argv[]){
     SDL_Window* window = nullptr;
