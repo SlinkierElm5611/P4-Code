@@ -130,9 +130,18 @@ int main(int argc, char* argv[]){
                         joystickState = 0;
                     }
                 }else if(event.jaxis.axis==1){
-                    std::cout<<"up-down"<<std::endl;
-                    std::cout<<event.jaxis.value<<std::endl;
+                    if(event.jaxis.value > 1000){
+                        joystickState = 1;
+                    }else if(event.jaxis.value < -1000){
+                        joystickState = 3;
+                    }else{
+                        joystickState = 0;
+                    }
                 }
+                if(joystickState!=0){
+                    printCharacterOutput(state, joystickState, switchState);
+                }
+                std::cout<<joystickState<<std::endl;
             }
             SDL_RenderClear(renderer);
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
