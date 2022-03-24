@@ -59,11 +59,81 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if (switchState == 2){
                 output = 'upward arrow key';
             }
+        }else if(state[SDLK_e]){
+            if(switchState == 0){
+                output = 'Y'; 
+            }else if(switchState == 1){
+                output = 'y';
+            }else if(switchState == 2){
+                output = '=';
+            }
+        }else if(state[SDLK_SPACE]){
+            if(switchState == 0){
+                ouptut = 'SWITCH STATE';
+            }else if(switchState == 1){
+                output = 'SWITCH STATE';
+            }else if(switchState == 2){
+                output = 'SWITCH STATE';
+            }
         }
 
     }else if(joystickState==2){
     }else if(joystickState==3){
-    }else if(joystickState==4){
+        
+    }else if(joystickState == 4){
+        if(state[SDLK_SPACE]){
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
+            }
+        }else if(state[SDLK_q]){
+            if(switchState == 0){
+                output = 'D';
+            }else if(switchState == 1){
+                output = 'd';
+            }else if(switchState == 2){
+                output = '%';
+            }
+        }else if(state[SDLK_3]){
+            if(switchState == 0){
+                output = 'H';
+            }else if (switchState == 1){
+                output = 'h';
+            }else if(switchState == 2){
+                output = '`';
+            }
+        }else if(state[SDLK_4]){
+            if(switchState == 0){
+                output = 'L';
+            }else if(switchState == 1){
+                output = 'l';
+            }else if(switchState == 2){
+                output = '~';
+            }
+        }else if(state[SDLK_5]){
+            if(switchState == 0){
+                output = 'P';
+            }else if(switchState == 1){
+                output = 'p';
+            }else if(switchState == 2){
+                output = '}';
+            }
+        }else if(state[SDLK_b]){
+            if(switchState == 0 ){
+                output = 'T';
+            }else if(switchState == 1){
+                output = 't';
+            }else if(switchState == 2){
+                output = '>';
+            }
+        }else if(state[SDLK_a]){
+            if(switchState == 0){
+                output = 'X';
+            }else if(switchState == 1 ){
+                output = 'x';
+            }else if (switchState == 2){
+                output = 'leftward arrow key';
+            }
     }
     std::cout<<output<<std::endl;
 }
