@@ -69,11 +69,11 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }
         }else if(state[SDLK_SPACE]){
             if(switchState == 0){
-                output = 'SWITCH STATE';
+                output = "SWITCH STATE";
             }else if(switchState == 1){
-                output = 'SWITCH STATE';
+                output = "SWITCH STATE";
             }else if(switchState == 2){
-                output = 'SWITCH STATE';
+                output = "SWITCH STATE";
             }
         }
     }else if(joystickState==2){
@@ -131,7 +131,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 1 ){
                 output = 'x';
             }else if (switchState == 2){
-                output = 'leftward arrow key';
+                output = "leftward arrow key";
             }
         }
     }
