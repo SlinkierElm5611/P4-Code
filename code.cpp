@@ -138,6 +138,18 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '|';
             }
+        }else if(state[SDLK_r]){
+            if(switchState == 0){
+                output = ','; 
+            }else if(switchState == 1){
+                output = '4'; // switchstate 2 doesn't have an output so not sure if there will be an error if i don't put anything for it
+            }
+        }else if(state[SDLK_t]){ //for some reason this lit up green
+            if(switchState == 0){
+                output = '/'; 
+            }else if(switchState == 1){
+                output = '8';
+            }
         }else if(state[SDLK_SPACE]){
             if(switchState == 0){
                 output = "SWITCH STATE";
