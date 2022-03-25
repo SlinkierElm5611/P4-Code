@@ -57,7 +57,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 1 ){
                 output = 'u';
             }else if (switchState == 2){
-                output = 'upward arrow key';
+                output = "upward arrow key";
             }
         }else if(state[SDLK_e]){
             if(switchState == 0){
@@ -77,6 +77,77 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }
         }
     }else if(joystickState==2){
+        if(state[SDLK_SPACE]){
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
+            }
+        }else if(state[SDLK_q]){
+            if(switchState == 0){
+                output = 'B';
+            }else if(switchState == 1){
+                output = 'b';
+            }else if(switchState == 2){
+                output = '#';
+            }
+        }else if(state[SDLK_3]){
+            if(switchState == 0){
+                output = 'F';
+            }else if (switchState == 1){
+                output = 'f';
+            }else if(switchState == 2){
+                output = '&';
+            }
+        }else if(state[SDLK_4]){
+            if(switchState == 0){
+                output = 'J';
+            }else if(switchState == 1){
+                output = 'j';
+            }else if(switchState == 2){
+                output = '_';
+            }
+        }else if(state[SDLK_5]){
+            if(switchState == 0){
+                output = 'N';
+            }else if(switchState == 1){
+                output = 'n';
+            }else if(switchState == 2){
+                output = ']';
+            }
+        }else if(state[SDLK_b]){
+            if(switchState == 0 ){
+                output = 'R';
+            }else if(switchState == 1){
+                output = 'r';
+            }else if(switchState == 2){
+                output = '****';
+            }
+        }else if(state[SDLK_a]){
+            if(switchState == 0){
+                output = 'V';
+            }else if(switchState == 1 ){
+                output = 'v';
+            }else if (switchState == 2){
+                output = "rightward arrow key";
+            }
+        }else if(state[SDLK_e]){
+            if(switchState == 0){
+                output = 'Z'; 
+            }else if(switchState == 1){
+                output = 'z';
+            }else if(switchState == 2){
+                output = '|';
+            }
+        }else if(state[SDLK_SPACE]){
+            if(switchState == 0){
+                output = "SWITCH STATE";
+            }else if(switchState == 1){
+                output = "SWITCH STATE";
+            }else if(switchState == 2){
+                output = "SWITCH STATE";
+            }
+        }
+
     }else if(joystickState==3){
         
     }else if(joystickState == 4){
