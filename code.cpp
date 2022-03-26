@@ -120,7 +120,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 1){
                 output = 'r';
             }else if(switchState == 2){
-                output = '****';
+                output = '****'; //not sure abt how to put single quote as the output
             }
         }else if(state[SDLK_a]){
             if(switchState == 0){
@@ -161,6 +161,86 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
         }
 
     }else if(joystickState==3){
+        if(state[SDLK_SPACE]){
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
+            }
+        }else if(state[SDLK_q]){
+            if(switchState == 0){
+                output = 'C';
+            }else if(switchState == 1){
+                output = 'c';
+            }else if(switchState == 2){
+                output = '$';
+            }
+        }else if(state[SDLK_3]){
+            if(switchState == 0){
+                output = 'G';
+            }else if (switchState == 1){
+                output = 'g';
+            }else if(switchState == 2){
+                output = '*';
+            }
+        }else if(state[SDLK_4]){
+            if(switchState == 0){
+                output = 'K';
+            }else if(switchState == 1){
+                output = 'k';
+            }else if(switchState == 2){
+                output = '+';
+            }
+        }else if(state[SDLK_5]){
+            if(switchState == 0){
+                output = 'O';
+            }else if(switchState == 1){
+                output = 'o';
+            }else if(switchState == 2){
+                output = '{';
+            }
+        }else if(state[SDLK_b]){
+            if(switchState == 0 ){
+                output = 'S';
+            }else if(switchState == 1){
+                output = 's';
+            }else if(switchState == 2){
+                output = '<'; 
+            }
+        }else if(state[SDLK_a]){
+            if(switchState == 0){
+                output = 'W';
+            }else if(switchState == 1 ){
+                output = 'w';
+            }else if (switchState == 2){
+                output = "downward arrow key";
+            }
+        }else if(state[SDLK_e]){
+            if(switchState == 0){
+                output = '('; 
+            }else if(switchState == 1){
+                output = '1';
+            }
+        }else if(state[SDLK_r]){
+            if(switchState == 0){
+                output = '?'; 
+            }else if(switchState == 1){
+                output = '5'; 
+            }
+        }else if(state[SDLK_t]){ //for some reason this lit up green
+            if(switchState == 0){
+                output = ';'; 
+            }else if(switchState == 1){
+                output = '9';
+            }
+        }else if(state[SDLK_SPACE]){
+            if(switchState == 0){
+                output = "SWITCH STATE";
+            }else if(switchState == 1){
+                output = "SWITCH STATE";
+            }else if(switchState == 2){
+                output = "SWITCH STATE";
+            }
+        }
         
     }else if(joystickState == 4){
         if(state[SDLK_SPACE]){
