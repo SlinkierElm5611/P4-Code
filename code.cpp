@@ -120,7 +120,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 1){
                 output = 'r';
             }else if(switchState == 2){
-                output = '****'; //not sure abt how to put single quote as the output
+                output = '\''; //escape sequence --> not sure if this will work 
             }
         }else if(state[SDLK_a]){
             if(switchState == 0){
