@@ -3,15 +3,21 @@
 #include <SDL.h>
 #include <glad/glad.h>
 void printCharacterOutput(const Uint8* state, const short& joystickState, short& switchState){
-    //assign keybinds 
     std::string output="";
     if(joystickState==1){
-        if(state[SDLK_SPACE]){
+        if(state[SDL_SCANCODE_SPACE]){
             switchState++;
             if(switchState==3){
                 switchState = 0;
             }
-        }else if(state[SDLK_q]){
+            if(switchState == 0){
+                output = "SWITCH STATE";
+            }else if(switchState == 1){
+                output = "SWITCH STATE";
+            }else if(switchState == 2){
+                output = "SWITCH STATE";
+            }
+        }else if(state[SDL_SCANCODE_Q]){
             if(switchState == 0){
                 output = 'A';
             }else if(switchState == 1){
@@ -19,7 +25,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '@';
             }
-        }else if(state[SDLK_3]){
+        }else if(state[SDL_SCANCODE_3]){
             if(switchState == 0){
                 output = 'E';
             }else if (switchState == 1){
@@ -27,7 +33,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '^';
             }
-        }else if(state[SDLK_4]){
+        }else if(state[SDL_SCANCODE_4]){
             if(switchState == 0){
                 output = 'I';
             }else if(switchState == 1){
@@ -35,7 +41,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '-';
             }
-        }else if(state[SDLK_5]){
+        }else if(state[SDL_SCANCODE_5]){
             if(switchState == 0){
                 output = 'M';
             }else if(switchState == 1){
@@ -43,7 +49,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '[';
             }
-        }else if(state[SDLK_b]){
+        }else if(state[SDL_SCANCODE_B]){
             if(switchState == 0 ){
                 output = 'Q';
             }else if(switchState == 1){
@@ -51,7 +57,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '"';
             }
-        }else if(state[SDLK_a]){
+        }else if(state[SDL_SCANCODE_A]){
             if(switchState == 0){
                 output = 'U';
             }else if(switchState == 1 ){
@@ -59,7 +65,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if (switchState == 2){
                 output = "upward arrow key";
             }
-        }else if(state[SDLK_e]){
+        }else if(state[SDL_SCANCODE_E]){
             if(switchState == 0){
                 output = 'Y'; 
             }else if(switchState == 1){
@@ -67,19 +73,19 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '=';
             }
-        }else if(state[SDLK_r]){
+        }else if(state[SDL_SCANCODE_R]){
             if(switchState == 0){
                 output = '.'; 
             }else if(switchState == 1){
                 output = '3';
             }
-        }else if(state[SDLK_t]){
+        }else if(state[SDL_SCANCODE_T]){
             if(switchState == 0){
                 output = ':'; 
             }else if(switchState == 1){
                 output = '7';
             }
-        }else if(state[SDLK_SPACE]){
+        }else if(state[SDL_SCANCODE_SPACE]){
             if(switchState == 0){
                 output = "SWITCH STATE";
             }else if(switchState == 1){
@@ -87,14 +93,18 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = "SWITCH STATE";
             }
-        }
-    }else if(joystickState==2){
-        if(state[SDLK_SPACE]){
             switchState++;
             if(switchState==3){
                 switchState = 0;
             }
-        }else if(state[SDLK_q]){
+        }
+    }else if(joystickState==2){
+        if(state[SDL_SCANCODE_SPACE]){
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
+            }
+        }else if(state[SDL_SCANCODE_Q]){
             if(switchState == 0){
                 output = 'B';
             }else if(switchState == 1){
@@ -102,7 +112,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '#';
             }
-        }else if(state[SDLK_3]){
+        }else if(state[SDL_SCANCODE_3]){
             if(switchState == 0){
                 output = 'F';
             }else if (switchState == 1){
@@ -110,7 +120,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '&';
             }
-        }else if(state[SDLK_4]){
+        }else if(state[SDL_SCANCODE_4]){
             if(switchState == 0){
                 output = 'J';
             }else if(switchState == 1){
@@ -118,7 +128,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '_';
             }
-        }else if(state[SDLK_5]){
+        }else if(state[SDL_SCANCODE_5]){
             if(switchState == 0){
                 output = 'N';
             }else if(switchState == 1){
@@ -126,7 +136,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = ']';
             }
-        }else if(state[SDLK_b]){
+        }else if(state[SDL_SCANCODE_B]){
             if(switchState == 0 ){
                 output = 'R';
             }else if(switchState == 1){
@@ -134,7 +144,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '\''; //escape sequence --> not sure if this will work 
             }
-        }else if(state[SDLK_a]){
+        }else if(state[SDL_SCANCODE_A]){
             if(switchState == 0){
                 output = 'V';
             }else if(switchState == 1 ){
@@ -142,7 +152,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if (switchState == 2){
                 output = "rightward arrow key";
             }
-        }else if(state[SDLK_e]){
+        }else if(state[SDL_SCANCODE_E]){
             if(switchState == 0){
                 output = 'Z'; 
             }else if(switchState == 1){
@@ -150,19 +160,19 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '|';
             }
-        }else if(state[SDLK_r]){
+        }else if(state[SDL_SCANCODE_R]){
             if(switchState == 0){
                 output = ','; 
             }else if(switchState == 1){
                 output = '4'; // switchstate 2 doesn't have an output so not sure if there will be an error if i don't put anything for it
             }
-        }else if(state[SDLK_t]){ //for some reason this lit up green
+        }else if(state[SDL_SCANCODE_T]){ //for some reason this lit up green
             if(switchState == 0){
                 output = '/'; 
             }else if(switchState == 1){
                 output = '8';
             }
-        }else if(state[SDLK_SPACE]){
+        }else if(state[SDL_SCANCODE_SPACE]){
             if(switchState == 0){
                 output = "SWITCH STATE";
             }else if(switchState == 1){
@@ -170,15 +180,18 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = "SWITCH STATE";
             }
-        }
-
-    }else if(joystickState==3){
-        if(state[SDLK_SPACE]){
             switchState++;
             if(switchState==3){
                 switchState = 0;
             }
-        }else if(state[SDLK_q]){
+        }
+    }else if(joystickState==3){
+        if(state[SDL_SCANCODE_SPACE]){
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
+            }
+        }else if(state[SDL_SCANCODE_Q]){
             if(switchState == 0){
                 output = 'C';
             }else if(switchState == 1){
@@ -186,7 +199,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '$';
             }
-        }else if(state[SDLK_3]){
+        }else if(state[SDL_SCANCODE_3]){
             if(switchState == 0){
                 output = 'G';
             }else if (switchState == 1){
@@ -194,7 +207,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '*';
             }
-        }else if(state[SDLK_4]){
+        }else if(state[SDL_SCANCODE_4]){
             if(switchState == 0){
                 output = 'K';
             }else if(switchState == 1){
@@ -202,7 +215,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '+';
             }
-        }else if(state[SDLK_5]){
+        }else if(state[SDL_SCANCODE_5]){
             if(switchState == 0){
                 output = 'O';
             }else if(switchState == 1){
@@ -210,7 +223,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '{';
             }
-        }else if(state[SDLK_b]){
+        }else if(state[SDL_SCANCODE_B]){
             if(switchState == 0 ){
                 output = 'S';
             }else if(switchState == 1){
@@ -218,7 +231,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '<'; 
             }
-        }else if(state[SDLK_a]){
+        }else if(state[SDL_SCANCODE_A]){
             if(switchState == 0){
                 output = 'W';
             }else if(switchState == 1 ){
@@ -226,25 +239,25 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if (switchState == 2){
                 output = "downward arrow key";
             }
-        }else if(state[SDLK_e]){
+        }else if(state[SDL_SCANCODE_E]){
             if(switchState == 0){
                 output = '('; 
             }else if(switchState == 1){
                 output = '1';
             }
-        }else if(state[SDLK_r]){
+        }else if(state[SDL_SCANCODE_R]){
             if(switchState == 0){
                 output = '?'; 
             }else if(switchState == 1){
                 output = '5'; 
             }
-        }else if(state[SDLK_t]){ //for some reason this lit up green
+        }else if(state[SDL_SCANCODE_T]){ //for some reason this lit up green
             if(switchState == 0){
                 output = ';'; 
             }else if(switchState == 1){
                 output = '9';
             }
-        }else if(state[SDLK_SPACE]){
+        }else if(state[SDL_SCANCODE_SPACE]){
             if(switchState == 0){
                 output = "SWITCH STATE";
             }else if(switchState == 1){
@@ -252,15 +265,18 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = "SWITCH STATE";
             }
-        }
-        
-    }else if(joystickState == 4){
-        if(state[SDLK_SPACE]){
             switchState++;
             if(switchState==3){
                 switchState = 0;
             }
-        }else if(state[SDLK_q]){
+        }
+    }else if(joystickState == 4){
+        if(state[SDL_SCANCODE_SPACE]){
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
+            }
+        }else if(state[SDL_SCANCODE_Q]){
             if(switchState == 0){
                 output = 'D';
             }else if(switchState == 1){
@@ -268,7 +284,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '%';
             }
-        }else if(state[SDLK_3]){
+        }else if(state[SDL_SCANCODE_3]){
             if(switchState == 0){
                 output = 'H';
             }else if (switchState == 1){
@@ -276,7 +292,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '`';
             }
-        }else if(state[SDLK_4]){
+        }else if(state[SDL_SCANCODE_4]){
             if(switchState == 0){
                 output = 'L';
             }else if(switchState == 1){
@@ -284,7 +300,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '~';
             }
-        }else if(state[SDLK_5]){
+        }else if(state[SDL_SCANCODE_5]){
             if(switchState == 0){
                 output = 'P';
             }else if(switchState == 1){
@@ -292,7 +308,7 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '}';
             }
-        }else if(state[SDLK_b]){
+        }else if(state[SDL_SCANCODE_B]){
             if(switchState == 0 ){
                 output = 'T';
             }else if(switchState == 1){
@@ -300,13 +316,17 @@ void printCharacterOutput(const Uint8* state, const short& joystickState, short&
             }else if(switchState == 2){
                 output = '>';
             }
-        }else if(state[SDLK_a]){
+        }else if(state[SDL_SCANCODE_A]){
             if(switchState == 0){
                 output = 'X';
             }else if(switchState == 1 ){
                 output = 'x';
             }else if (switchState == 2){
                 output = "leftward arrow key";
+            }
+            switchState++;
+            if(switchState==3){
+                switchState = 0;
             }
         }
     }
@@ -364,8 +384,6 @@ int main(int argc, char* argv[]){
             }
             if(event.type == SDL_JOYAXISMOTION){
                 short joystickState = 0;
-                //printCharacterOutput(state, joystickState, switchState);
-                //find distinction between direction and setup printFunction call
                 if(event.jaxis.axis==0){
                     if(event.jaxis.value > 1000){
                         joystickState = 4;
@@ -386,7 +404,6 @@ int main(int argc, char* argv[]){
                 if(joystickState!=0){
                     printCharacterOutput(state, joystickState, switchState);
                 }
-                std::cout<<joystickState<<std::endl;
             }
             SDL_RenderClear(renderer);
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
