@@ -662,6 +662,7 @@ void modifyText(const Uint8* state, const short& joystickState, short& switchSta
 }
 int main(int argc, char* argv[]){
     SDL_Window* window = nullptr;
+    SDL_Surface* surface = nullptr;
     SDL_Renderer* renderer = nullptr;
     SDL_Joystick* joystick = nullptr;
     if(SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK) < 0){
@@ -699,6 +700,7 @@ int main(int argc, char* argv[]){
             640,
             480,
             SDL_WINDOW_OPENGL);
+    surface = SDL_GetWindowSurface(window);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     bool gameIsRunning = true;
     short switchState = 0;
@@ -734,8 +736,10 @@ int main(int argc, char* argv[]){
                     modifyText(state, joystickState, switchState, text);
                     if(switchState != currentSwitchState){
                         //update render to new layout
+                        SDL_UpdateWindowSurface(window);
+                    }else{
+                        std::cout<<text<<std::endl;
                     }
-                    //update text render
                 }
             }
             SDL_RenderClear(renderer);
