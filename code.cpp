@@ -736,7 +736,8 @@ int main(int argc, char* argv[]){
                     modifyText(state, joystickState, switchState, text);
                     if(switchState != currentSwitchState){
                         //update render to new layout
-                        SDL_UpdateWindowSurface(window);
+                        //SDL_UpdateWindowSurface(window);
+                        std::cout<<"Switch State!"<<std::endl;
                     }else{
                         std::cout<<text<<std::endl;
                     }
