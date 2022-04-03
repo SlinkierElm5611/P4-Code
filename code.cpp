@@ -701,13 +701,12 @@ int main(int argc, char* argv[]){
         }
     }
     window = SDL_CreateWindow("C++ SDL2 Window",
-            0,
-            0,
+            SDL_WINDOWPOS_UNDEFINED,
+            SDL_WINDOWPOS_UNDEFINED,
             1024,
             768,
             SDL_WINDOW_RESIZABLE);
-    surface = SDL_GetWindowSurface(window);
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    renderer = SDL_CreateRenderer(window, -1, 0);
     state1Window = SDL_LoadBMP("State1.bmp");
     state2Window = SDL_LoadBMP("State2.bmp");
     state3Window = SDL_LoadBMP("State3.bmp");
