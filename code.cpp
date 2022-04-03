@@ -491,9 +491,8 @@ void modifyText(const Uint8* state, const short& joystickState, short& switchSta
         }
     }else if(joystickState==3){
         if(state[SDL_SCANCODE_SPACE]){
-            switchState++;
-            if(switchState==3){
-                switchState = 0;
+            if(text.size() != 0){
+                text.pop_back();
             }
             //output ="SWITCH STATE";
         }else if(state[SDL_SCANCODE_Q]){
@@ -697,8 +696,8 @@ int main(int argc, char* argv[]){
     window = SDL_CreateWindow("C++ SDL2 Window",
             0,
             0,
-            640,
-            480,
+            1024,
+            768,
             SDL_WINDOW_OPENGL);
     surface = SDL_GetWindowSurface(window);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
