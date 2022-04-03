@@ -664,6 +664,13 @@ int main(int argc, char* argv[]){
     SDL_Surface* surface = nullptr;
     SDL_Renderer* renderer = nullptr;
     SDL_Joystick* joystick = nullptr;
+    SDL_Surface* state1Window = nullptr;
+    SDL_Surface* state2Window = nullptr;
+    SDL_Surface* state3Window = nullptr;
+    SDL_Texture* state1 = nullptr;
+    SDL_Texture* state2 = nullptr;
+    SDL_Texture* state3 = nullptr;
+    SDL_Texture* texture = nullptr;
     if(SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK) < 0){
         std::cout << "SDL could not be initialized: " <<
                   SDL_GetError();
@@ -698,9 +705,18 @@ int main(int argc, char* argv[]){
             0,
             1024,
             768,
-            SDL_WINDOW_OPENGL);
+            SDL_WINDOW_RESIZABLE);
     surface = SDL_GetWindowSurface(window);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    state1Window = SDL_LoadBMP("State1.bmp");
+    state2Window = SDL_LoadBMP("State2.bmp");
+    state3Window = SDL_LoadBMP("State3.bmp");
+    state1 = SDL_CreateTextureFromSurface(renderer, state1Window);
+    state2 = SDL_CreateTextureFromSurface(renderer, state2Window);
+    state3 = SDL_CreateTextureFromSurface(renderer, state3Window);
+    texture = state1;
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderPresent(renderer);
     bool gameIsRunning = true;
     short switchState = 0;
     std::string text = "";
@@ -734,20 +750,28 @@ int main(int argc, char* argv[]){
                     short currentSwitchState = switchState;
                     modifyText(state, joystickState, switchState, text);
                     if(switchState != currentSwitchState){
-                        //update render to new layout
-                        //SDL_UpdateWindowSurface(window);
-                        std::cout<<"Switch State!"<<std::endl;
+                        if(switchState == 0){
+                            SDL_RenderCopy(renderer, state1, NULL, NULL);
+                        }else if(switchState == 1){
+                            SDL_RenderCopy(renderer, state2, NULL, NULL);
+                        }else{
+                            SDL_RenderCopy(renderer, state3, NULL, NULL);
+                        }
+                        SDL_RenderPresent(renderer);
                     }else{
                         std::cout<<text<<std::endl;
                     }
                 }
             }
-            SDL_RenderClear(renderer);
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-            SDL_RenderDrawLine(renderer,5,5,100,120);
-            SDL_RenderPresent(renderer);
         }
     }
+    SDL_DestroyTexture(texture);
+    SDL_DestroyTexture(state1);
+    SDL_DestroyTexture(state2);
+    SDL_DestroyTexture(state3);
+    SDL_FreeSurface(state1Window);
+    SDL_FreeSurface(state2Window);
+    SDL_FreeSurface(state3Window);
     SDL_DestroyWindow(window);
     SDL_Delay(3000);
     SDL_Quit();
