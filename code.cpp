@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <SDL.h>
-#include <glad/glad.h>
 void printCharacterOutput(const Uint8* state, const short& joystickState, short& switchState){
     std::string output="";
     if(joystickState==1){

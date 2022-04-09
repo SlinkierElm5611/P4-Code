@@ -1,2 +1,2 @@
 program:
-	clang++ code.cpp glad/src/glad.c -o backendCode -I/opt/homebrew/include/SDL2 -I glad/include -D_THREAD_SAFE -L/opt/homebrew/lib -lSDL2
+	clang++ code.cpp -o backendCode -I/opt/homebrew/include/SDL2 -D_THREAD_SAFE -L/opt/homebrew/lib -lSDL2
